@@ -23,21 +23,24 @@ const middle = function(array) {
   // if statements to determine the length of arrays
   if ((array.length === 1) || (array.length === 2)) {
     console.log(middleValue);
+    return middleValue
   } else if (array.length % 2 === 1) {
     // if the array is odd numbers
     var middle = array[Math.floor(array.length / 2)];
     middleValue.push(middle)
+    return middleValue
   } else if (array.length % 2 === 0) {
     // if the array is even numbers
     let firstMiddle = array[Math.floor((array.length - 1) / 2)];
     let secondMiddle = array[Math.floor((array.length + 1) / 2)];
     middleValue.push(firstMiddle)
     middleValue.push(secondMiddle)
+    return middleValue
   }
   console.log("array of middle",middleValue);
   return middleValue
 }
 
 // middle([1, 2]) 
-middle([1, 2, 3, 4, 5, 6]) 
-assertArraysEqual(middle([1, 2, 3, 4, 5, 6]),[3,4])
+middle([1, 2, 3, 4, 5]) 
+assertArraysEqual(middle([1, 2, 3, 4, 5]),[3])
