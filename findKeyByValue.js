@@ -13,12 +13,6 @@ const findKeyByValue = function(obj,value) {
       console.log(`key in the if statement: ${key}`)
       return key
     }
-    // let movieName = obj[key]
-    // console.log(`moviename ${movieName}`)
-    // console.log(`value ${value}`)
-    // if (movieName === value) {
-
-    // }
   }
 }
 
