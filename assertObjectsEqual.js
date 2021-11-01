@@ -19,22 +19,31 @@ const eqObjects = function(object1, object2) {
 
   if (objectOneLength.length === objectTwoLength.length) {
     // for loop of one of the objects
-    for (let keys of objectOneLength) {
-      if (Array.isArray(objectOneLength[keys]) && Array.isArray(objectTwoLength[key])) {
-        if (!eqArrays(objectOneLength[key],objectTwoLength[key])) {
-          return false;
+    const shorterArray = objectOneLength.length > objectTwoLength.length ? objectOneLength : objectTwoLength
+    const longerArray = objectOneLength.length < objectTwoLength.length ? objectTwoLength : objectOneLength
+    for (let keys of longerArray) {
+      //console.log('objectonelength keys',keys)
+      if (Array.isArray(shorterArray[keys]) && Array.isArray(longerArray[keys])) {
+        //console.log('object one length key',objectOneLength[keys])
+        //console.log('object two length key',objectTwoLength[keys])
+        if (eqArrays(objectOneLength[keys],objectTwoLength[keys])) {
+          return true;
         }
+        console.log("got here");
+      if (assertEqual(objectOneLength[keys],objectTwoLength[keys])) {
+        return true
       }
+      }
+      
     }
-    return true
   } 
-  return false
+    return false
 };
 
 // FUNCTION IMPLEMENTATION
 const assertObjectsEqual = function(actual, expected) {
   const inspect = require('util').inspect; // <= add this line
-  console.log(`Example label: ${inspect(actual)}`);
+  console.log(`44Example label: ${inspect(actual)}`);
   if (eqObjects(actual, expected)) {
     console.log(`✅ Assertion Passed: ${inspect(actual)}  === ${expected}`);
     // Otherwise, it will say fail
@@ -45,6 +54,6 @@ const assertObjectsEqual = function(actual, expected) {
 
 const ab = { a: "1", b: "2"};
 const ba = { b: "2", a: "1"};
-console.log(assertObjectsEqual(eqObjects(ab,ba),false));
+console.log(assertObjectsEqual(eqObjects(ab,ba),true));
 
 
