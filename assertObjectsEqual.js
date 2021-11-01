@@ -11,34 +11,34 @@ const eqArrays = function(array1, array2) {
 };
 // Returns true if both objects have identical keys with identical values.
 // Otherwise you get back a big fat false!
-const eqObjects = function(object1, object2) {
+const eqObjects = function (object1, object2) {
   //compare lengths
-  
-  let objectOneLength = Object.keys(object1)
-  let objectTwoLength = Object.keys(object2)
+  console.log("object one", object1);
+  console.log("object 2", object2);
+  let objectOneKeys = Object.keys(object1);
+  let objectTwoKeys = Object.keys(object2);
+  console.log("object one keys", objectOneKeys);
+  console.log("object 2 keys", objectTwoKeys);
 
-  if (objectOneLength.length === objectTwoLength.length) {
-    // for loop of one of the objects
-    const shorterArray = objectOneLength.length > objectTwoLength.length ? objectOneLength : objectTwoLength
-    const longerArray = objectOneLength.length < objectTwoLength.length ? objectTwoLength : objectOneLength
-    for (let keys of longerArray) {
-      //console.log('objectonelength keys',keys)
-      if (Array.isArray(shorterArray[keys]) && Array.isArray(longerArray[keys])) {
-        //console.log('object one length key',objectOneLength[keys])
-        //console.log('object two length key',objectTwoLength[keys])
-        if (eqArrays(objectOneLength[keys],objectTwoLength[keys])) {
-          return true;
-        }
-        console.log("got here");
-      if (assertEqual(objectOneLength[keys],objectTwoLength[keys])) {
-        return true
+  if (objectOneKeys.length !== objectTwoKeys.length) {
+    return false;
+  }
+  for (let key of objectOneKeys) {
+    console.log(`object1['${key}'] = ${object1[key]}`);
+    if (  Array.isArray(object1[key])  &&  Array.isArray(object2[key])  ) {
+      if (!eqArrays(object1[key], object2[key])) {
+        return false;
       }
+    } else {
+      if (object1[key] !== object2[key]) {
+        console.log("not equal");
+        return false;
       }
-      
     }
-  } 
-    return false
+  }
+  return true;
 };
+
 
 // FUNCTION IMPLEMENTATION
 const assertObjectsEqual = function(actual, expected) {
