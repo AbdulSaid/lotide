@@ -30,6 +30,3 @@ The following functions are currently implemented:
 * `function2(tail)`: Will give you every number after the first number in an array(tail).
 * `function3(middle)`: Will give you the middle number of an array. If the array is less than 2, will return a empty array. If the array is odd will return one middle number. If the array is even, will return 2 middle numbers.
 
-head,   
-  tail, 
-  middle, 
