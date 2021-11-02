@@ -9,7 +9,7 @@ const middle = function(array) {
     return middleValue;
   } else if (array.length % 2 === 1) {
     // if the array is odd numbers
-    var middle = array[Math.floor(array.length / 2)];
+    let middle = array[Math.floor(array.length / 2)];
     middleValue.push(middle);
     return middleValue;
   } else if (array.length % 2 === 0) {
