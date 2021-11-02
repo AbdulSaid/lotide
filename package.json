@@ -1,7 +1,7 @@
 {
-  "name": "lotide",
+  "name": "@abdulsaid/lotide",
   "version": "1.0.0",
-  "description": "",
+  "description": "This is a library that has 3 functions called head, middle, tail.",
   "main": "assertArraysEqual.js",
   "directories": {
     "test": "test"
@@ -13,7 +13,7 @@
     "type": "git",
     "url": "git+https://github.com/AbdulSaid/lotide.git"
   },
-  "author": "",
+  "author": "Abdulrahman Said",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/AbdulSaid/lotide/issues"
